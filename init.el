@@ -3,6 +3,8 @@
 
 (defconst is-mac (equal system-type 'darwin))
 (defconst is-linux (equal system-type 'gnu/linux))
+(defconst is-windows (equal system-type 'windows-nt))
+
 (defconst has-gui (display-graphic-p))
 
 
@@ -326,7 +328,9 @@
     (when is-linux
       (set-frame-font "Input Mono-12" nil t))
     (when is-mac
-      (set-frame-font "Monaco 15" nil t)))
+      (set-frame-font "Monaco 15" nil t))
+    (when is-windows
+      (set-frame-font "Lucida Console-12" nil t)))
 
   (when has-gui
     (add-hook 'after-init-hook #'nc/setup-font))
