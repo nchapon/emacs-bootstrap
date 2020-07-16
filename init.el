@@ -200,9 +200,10 @@
      (key-chord-define-global "kk" 'kill-this-buffer))
 
 (use-package magit
-  :config
+  :init
 
-  (setq magit-completing-read-function 'ivy-completing-read)
+  (when (getenv "GIT_EXECUTABLE")
+    (setq magit-git-executable (getenv "GIT_EXECUTABLE")))
 
   :bind
   ;; Magic
@@ -261,10 +262,10 @@
 
 (use-package windmove
   :bind
-  ("C-x <up>" . windmove-up)
-  ("C-x <down>" . windmove-down)
-  ("C-x <left>" . windmove-left)
-  ("C-x <right>" . windmove-right))
+  ("C-c <up>" . windmove-up)
+  ("C-c <down>" . windmove-down)
+  ("C-c <left>" . windmove-left)
+  ("C-c <right>" . windmove-right))
 
 (use-package wgrep)
 
