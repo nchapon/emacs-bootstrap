@@ -226,6 +226,10 @@
 
 (use-package no-littering)
 
+(use-package org-bullets
+    :hook (org-mode . org-bullets-mode)
+    :custom (org-bullets-bullet-list '("◉" "✿" "★" "•")))
+
 (use-package projectile
   :config
   (setq projectile-known-projects-file
