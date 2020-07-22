@@ -125,6 +125,18 @@
           company-dabbrev-code-everywhere t
           company-transformers '(company-sort-by-occurrence))))
 
+(use-package dired
+  :config
+  (require 'dired-x) ;; Enable C-x C-j
+  (setq dired-listing-switches "-alh"
+        dired-recursive-deletes 'always
+        dired-recursive-copies 'always))
+
+(use-package dired-narrow
+  :ensure t
+  :bind (:map dired-mode-map
+              ("/" . dired-narrow)))
+
 
 (use-package ediff
   :config
